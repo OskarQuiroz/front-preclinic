@@ -10,6 +10,7 @@ import { RolesComponent } from './roles/roles.component';
 import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
 import { PerfilUsuarioComponent } from './usuarios/perfil-usuario/perfil-usuario.component';
 import { UsuariosComponent } from './usuarios/lista-usuario/usuarios.component';
+import { LoginGuard } from './login/guard/login.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: '',
     component: NavVerticalComponent,
+    //canActivateChild:[],
     children: [
       {
         path: '',
