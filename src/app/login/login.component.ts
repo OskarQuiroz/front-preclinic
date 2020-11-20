@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // importar servicio de login
 import {LoginService} from './service/login.service'
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   password : String;
 
 
-  constructor( private serviceLogin: LoginService) { }
+  constructor( private serviceLogin: LoginService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
         console.log(data) //con esto vere lo que me devuelve el back
         this.serviceLogin.setToken(data['token']) //aquii guardare el toen e localStorage
         this.serviceLogin.setIsadmin(data['is_staff'])
+        this.router.navigate(['../inicio']);
       },
       (error) => {
         console.log(error)

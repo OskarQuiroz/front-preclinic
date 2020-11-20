@@ -40,11 +40,11 @@ const routes: Routes = [
           component: CrearUsuarioComponent
         },
         {
-          path: 'perfil-usuario', //solo es de muestra, en realiddad el path tiene que ser usuarios/:id donde el id es el idetificador del usuario
+          path: 'perfil-usuario/:dni', 
           component: PerfilUsuarioComponent
         },
         {
-          path: 'perfil-usuario/ficha-medica', 
+          path: 'ficha-medica/:dni', 
           component: FichaMedicaComponent
         },
       {
