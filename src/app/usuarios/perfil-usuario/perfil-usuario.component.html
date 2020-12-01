@@ -60,10 +60,6 @@
             <ul class="nav nav-tabs nav-tabs-bottom">
                 <li class="nav-item"><a class="nav-link active" href="#reporte-cont" data-toggle="tab">Reportes Medicos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Contacto Emergencia</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Info. General</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Historial Medico</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Medicamentes Alergicos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Medicamentes Habituales</a></li>
             </ul>
 
             <div class="tab-content">
@@ -75,39 +71,18 @@
                     <h3 class="card-title">Reportes</h3>
                     <div class="experience-box">
                         <ul class="experience-list">
-                            <li>
+                            <li *ngFor="let ficha of fichas">
                                 <div class="experience-user">
                                     <div class="before-circle"></div>
                                 </div>
                                 <div class="experience-content">
                                     <div class="timeline-content">
-                                        <a href="#/" class="name">Resfriado Comun</a>
-                                        <span class="time">1/11/2020</span>
+                                        <a href="#/" class="name">Reporte Medico</a>
+                                        <span class="time">{{ficha.anio}}</span>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="experience-user">
-                                    <div class="before-circle"></div>
-                                </div>
-                                <div class="experience-content">
-                                    <div class="timeline-content">
-                                        <a href="#/" class="name">Covid</a>
-                                        <span class="time">10/09/20</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="experience-user">
-                                    <div class="before-circle"></div>
-                                </div>
-                                <div class="experience-content">
-                                    <div class="timeline-content">
-                                        <a href="#/" class="name">Operacion Cardiaca</a>
-                                        <span class="time">05/05/20</span>
-                                    </div>
-                                </div>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -116,9 +91,6 @@
                 </div>
                 <div class="tab-pane" id="bottom-tab2">
                     Tab content 2
-                </div>
-                <div class="tab-pane" id="bottom-tab3">
-                    Tab content 3
                 </div>
             </div>
         </div>
