@@ -48,7 +48,6 @@ export class PerfilUsuarioComponent implements OnInit {
       error =>{
         console.log(error)
       }
-
     )
     this.existeFichaMedicas=true
   }

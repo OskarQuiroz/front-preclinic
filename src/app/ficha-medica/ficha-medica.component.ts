@@ -4,6 +4,9 @@ import { LoginService} from './../login/service/login.service'
 import { ServiceListUsersService} from '../usuarios/lista-usuario/service-list-users.service'
 import { ActivatedRoute,Router } from '@angular/router'; 
 
+import Swal from'sweetalert2';
+
+
 @Component({
   selector: 'app-ficha-medica',
   templateUrl: './ficha-medica.component.html',
@@ -34,14 +37,13 @@ export class FichaMedicaComponent implements OnInit {
   }
 
 
-
   getSangre(){
     this.service.tipoSangre()
       .subscribe( data => {
         this.sangres= data['listado']
         //console.log(this.sangres )
       });
-     this.existeSangre =true
+      this.existeSangre = true
   }
 
   get diagnosticos() {
@@ -147,13 +149,28 @@ export class FichaMedicaComponent implements OnInit {
       });
      
     }
+    
+    Swal.showLoading()
+  let dni=this.activatedRoute.snapshot.params['dni'];
    this.userService.pushFichaMedica(this.forma.value).subscribe(
      (data)=>{
        console.log("enviado bien")
-       this.router.navigate(['../inicio']);
-
+       
+       Swal.fire({
+        icon: 'success',
+        title: 'Envio exitoso',
+        text: 'Formulario enviado',
+        showConfirmButton: true,
+      }).then( () => {
+        this.router.navigate(['../perfil-usuario', dni]);
+      })
+       
      },
      error =>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Hubo un error :(',
+      })
       console.log("errorrrrrr")
      }
    )

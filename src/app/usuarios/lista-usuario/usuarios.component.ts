@@ -9,6 +9,7 @@ import {ServiceListUsersService} from './service-list-users.service'
 export class UsuariosComponent implements OnInit {
 
   datausers = []
+  info = false
   constructor( private serviceUsers: ServiceListUsersService
                ) { }
 
@@ -19,9 +20,10 @@ export class UsuariosComponent implements OnInit {
   getUsers(){
     this.serviceUsers.getUsers().subscribe(
       data => {
-        // console.log(data['users'])
+        //console.log(data['users'])
         this.datausers = data['users']
         //console.log(this.datausers)
+        this.info=true
       }
     )
   }
