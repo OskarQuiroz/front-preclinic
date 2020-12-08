@@ -47,10 +47,10 @@ export class FichaMedicaComponent implements OnInit {
   }
 
   get diagnosticos() {
-    return this.forma.get('diagnosticos') as FormArray;
+    return this.forma.get('diagnostico') as FormArray;
   }
   get medicamentoHabituales() {
-    return this.forma.get('medicamentosHabitual') as FormArray;
+    return this.forma.get('medicamentoHabitual') as FormArray;
   }
 
   get MedicamentosAlergicos(){
@@ -66,8 +66,8 @@ export class FichaMedicaComponent implements OnInit {
 
     this.forma = this.fb.group({
 
-      diagnosticos: this.fb.array([]),
-      medicamentosHabitual: this.fb.array([]),
+      diagnostico: this.fb.array([]),
+      medicamentoHabitual: this.fb.array([]),
       medicamentosAlergicos: this.fb.array([]),
       sangre : '',
       seguros: this.fb.group({
@@ -175,6 +175,10 @@ export class FichaMedicaComponent implements OnInit {
      }
    )
 
+  }
+  Redirigir(){
+    let ficha=this.activatedRoute.snapshot.params['dni'];
+    this.router.navigate(['../perfil-usuario',ficha])
   }
 
 }

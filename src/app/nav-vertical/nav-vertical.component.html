@@ -40,16 +40,16 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="menu-title">Main</li>
-                        <li class="active">
-                            <a [routerLink]="['./inicio']" ><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
+                        <li routerLinkActive="active">
+                            <a [routerLink]="['./inicio']"  ><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
                         </li>
-						<li>
+						<li routerLinkActive="active">
                             <a  [routerLink]="['./usuarios']" ><i class="fa fa-user-md"></i> <span>Usuarios</span></a>
                         </li>
-                        <li>
+                        <li routerLinkActive="active">
                             <a  [routerLink]="['./estadistica']" ><i class="fa fa-wheelchair"></i> <span>Estadisticas</span></a>
                         </li>
-                        <li>
+                        <li  routerLinkActive="active">
                             <a  [routerLink]="['./roles']" ><i class="fa fa-calendar"></i> <span>Roles</span></a>
                         </li>
             

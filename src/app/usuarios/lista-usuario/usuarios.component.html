@@ -1,5 +1,8 @@
 <div class="page-wrapper" *ngIf="info">
     <div class="content">
+        <input type="text" class="form-control" placeholder="Busqueda" name="filter" [(ngModel)]="filteruser">
+    </div>
+    <div class="content">
         <div class="row">
             <div class="col-sm-4 col-3">
                 <h4 class="page-title">Usuarios</h4>
@@ -11,7 +14,7 @@
         <div class="row doctor-grid">
             <!-- datos de prueba-->
 
-            <div class="col-md-4 col-sm-4  col-lg-3" *ngFor=" let user of datausers ">
+            <div class="col-md-4 col-sm-4  col-lg-3" *ngFor=" let user of datausers | paginate: { itemsPerPage: 12, currentPage: p } | filter:filteruser">
                 <div class="profile-widget">
                     <div class="doctor-img">
                         <a class="avatar" [routerLink]="['../perfil-usuario',user.dni]"><img alt="" src="assets/img/doctor-thumb-03.jpg"></a>
@@ -32,9 +35,19 @@
                     </div>
                 </div>
             </div>
+            
 
 
 
+        </div>
+        <div class="row">
+            <pagination-controls 
+            (pageChange)="p = $event"
+            previousLabel="Anterior"
+            nextLabel="Siguiente"
+            >
+            
+        </pagination-controls>
         </div>
     </div>
 

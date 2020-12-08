@@ -16,6 +16,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RolesComponent } from './roles/roles.component';
 import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
 import { PerfilUsuarioComponent } from './usuarios/perfil-usuario/perfil-usuario.component';
+import { FichaComponent } from './usuarios/ficha/ficha.component';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FilterPipe } from './pipes/filter.pipe'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -29,14 +33,18 @@ import { PerfilUsuarioComponent } from './usuarios/perfil-usuario/perfil-usuario
     NotFoundComponent,
     RolesComponent,
     CrearUsuarioComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    FichaComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.co
 import { PerfilUsuarioComponent } from './usuarios/perfil-usuario/perfil-usuario.component';
 import { UsuariosComponent } from './usuarios/lista-usuario/usuarios.component';
 import { LoginGuard } from './login/guard/login.guard';
+import { FichaComponent } from './usuarios/ficha/ficha.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
         {
           path: 'perfil-usuario/:dni', 
           component: PerfilUsuarioComponent
+        },
+        {
+          path: 'perfil-usuario/:dni/:id', 
+          component: FichaComponent
         },
         {
           path: 'ficha-medica/:dni', 

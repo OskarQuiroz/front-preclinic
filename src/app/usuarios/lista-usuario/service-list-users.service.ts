@@ -20,4 +20,7 @@ export class ServiceListUsersService {
     console.log(forma)
     return this.service.post('https://nameless-plains-49486.herokuapp.com/api/medic',forma)
   }
+  getFicha(id){
+    return this.service.get('https://nameless-plains-49486.herokuapp.com/api/medic/'+ id)
+  }
 }

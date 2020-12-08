@@ -8,7 +8,7 @@ export class PerfilUsuarioService {
   constructor(private service: HttpClient) { }
 
   getFichaMedicas(codigo:String){
-    return this.service.get('https://nameless-plains-49486.herokuapp.com/api/medic/'+ codigo)
+    return this.service.get('https://nameless-plains-49486.herokuapp.com/api/medic/usuario/'+ codigo)
   }
 }
 

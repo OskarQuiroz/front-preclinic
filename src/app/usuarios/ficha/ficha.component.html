@@ -1,0 +1,174 @@
+
+<div class="page-wrapper" *ngIf="existeFicha" >
+  <div class="container">
+    <a class="btn btn-primary float-right mt-4"  style="color: white;" (click) ="Redirigir()">Atras</a>
+  </div>
+    <div class="container mt-5">
+
+        <div class="row mb-4 ">
+          <h1>Ficha Médica</h1>
+        </div>
+        <div class="form-group col-md-6" style="display: none;">
+          <label for="inputEmail4">Email</label>
+          <input type="text" >
+        </div>
+
+        <div class="row mb-3">
+          <div class="input-group mb-3 col-md-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Tipo de Sangre</label>
+            </div>
+            <input type="text" name="tipoSangre" id="" >
+          </div>
+          <div class="input-group mb-3 col-md-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Año</label>
+            </div>
+            <input type="number" name="anio" id="" [value]=anio disabled>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+              <h2>Diagnostico</h2>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Diagnostico</th>
+                  </tr>
+                </thead>
+                <tbody name="diagnosticos">
+                  <tr *ngFor="let control of diagnostico; let i = index">
+                    <td> {{ i + 1 }}</td>
+                    <td>
+                      <input class="form-control"
+                            type="text"
+                            [value] = control  
+                            disabled
+                          >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+        
+            </div>
+        </div>
+        
+        <div class="row">
+              <div class="col">
+                <h2>Medicamentos Habituales</h2>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Dosis</th>
+                      <th>Cantidad(mg o ml)</th>
+                      <th>Periodo</th>
+                    </tr>
+                  </thead>
+                  <tbody name="medicamentosHabitual">
+                    <tr  *ngFor="let medicamento of medicamentoHabitual; let i = index">             
+                      <td> {{ i + 1 }} </td>
+                      <td>
+                        <input class="form-control"
+                              [value]="medicamento.nombre"
+                              disabled>
+                      </td>
+                      <td>
+                          <input class="form-control"
+                                type="text"
+                                [value]="medicamento.dosis"
+                                disabled>
+                        </td>
+                        <td>
+                          <input class="form-control"
+                                type="number"
+                                [value]="medicamento.cantidad"
+                                disabled>
+                        </td>
+                        <td>
+                          <input class="form-control"
+                                type="text"
+                                [value]="medicamento.periodo"
+                                disabled>
+                        </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+                
+          
+              </div>
+        </div>
+
+        <div class="row">
+              <div class="col">
+                <h2>Medicamentos Alergicos</h2>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>ID</th>
+                      <th>Medicina</th>
+                    </tr>
+                  </thead>
+                  <tbody name="medicamentosAlergicos">
+                    <tr *ngFor="let medicamento of medicamentosAlergicos; let i = index">
+                      <td> {{ i + 1 }} </td>
+                      <td>
+                        <input class="form-control"
+                              type="text"
+                              [value]="medicamento"
+                              disabled>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+          
+              </div>
+        </div> 
+
+        <h2 class="mb-3">Seguros Médicos</h2>
+        <div class="row" >
+          <div class="col-md-6">   
+            <h3 class="mb-4">Publicos </h3>
+              <input type="checkbox" >UNMSM
+              <input type="checkbox"  (click)="checkboxMinsa()" id="minsa">MINSA
+              <input type="checkbox"  id="essalud">ESSALUD
+          </div>
+          <div class="col-md-6">   
+              <h3>Privados </h3>
+              <input class="form-control"
+              placeholder="EPS"
+>
+          </div>
+        </div>
+
+        <div class="form row mt-4">
+          <div class="input-group col" style="margin-bottom: 100px !important;">
+            <button type="submit" class="btn btn-outline-primary btn-block">
+              Guardar
+            </button>
+          </div>
+        </div> 
+
+
+
+      <hr>
+
+      <pre>
+      
+        {{diagnostico}}
+        {{medicamentosAlergicos}}
+        {{medicamentoHabitual}}
+      
+      </pre>
+
+      
+    </div>
+</div>

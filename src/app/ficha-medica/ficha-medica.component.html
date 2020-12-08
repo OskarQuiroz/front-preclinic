@@ -1,4 +1,7 @@
 <div class="page-wrapper" *ngIf="existeSangre && existeFormulario">
+    <div class="container">
+        <a class="btn btn-primary float-right mt-4"  style="color: white;" (click) ="Redirigir()">Atras</a>
+      </div>
     <div class="container mt-5">
         <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
             <div class="row mb-4">
@@ -38,7 +41,7 @@
                                 <th>Borrar</th>
                             </tr>
                         </thead>
-                        <tbody formArrayName="diagnosticos">
+                        <tbody formArrayName="diagnostico">
                             <tr *ngFor="let control of diagnosticos.controls; let i = index">
                                 <td> {{ i + 1 }} </td>
                                 <td>
@@ -74,7 +77,7 @@
                                 <th>Borrar</th>
                             </tr>
                         </thead>
-                        <tbody formArrayName="medicamentosHabitual">
+                        <tbody formArrayName="medicamentoHabitual">
                             <tr *ngFor="let control of medicamentoHabituales.controls; let i = index" [formGroupName]="i">
                                 <td> {{ i + 1 }} </td>
                                 <td>
@@ -161,7 +164,7 @@
             </div>
 
         </form>
-        <!--
+
         <hr>
         <pre>
         Estado del formulario: {{ forma.valid }}
@@ -173,7 +176,7 @@
       
         {{ forma.value | json }}
       
-      </pre>-->
+      </pre>
     </div>
 
 </div>

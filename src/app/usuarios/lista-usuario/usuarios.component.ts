@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiceListUsersService} from './service-list-users.service'
 
+
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
-
+  p: number = 1
+  filteruser = []
   datausers = []
   info = false
   constructor( private serviceUsers: ServiceListUsersService
