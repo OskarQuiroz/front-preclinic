@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 // importar servicio de login
 import {LoginService} from './service/login.service'
+
+import Swal from'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,15 +26,28 @@ export class LoginComponent implements OnInit {
     console.log(this.email) //mostrando lo que enviare
     console.log(this.password)  //mostrando lo que enviare
     //consumo el servicio
+    Swal.showLoading()
     this.serviceLogin.Login(this.email,this.password).subscribe(   
       (data) => {
         console.log(data) //con esto vere lo que me devuelve el back
         this.serviceLogin.setToken(data['token']) //aquii guardare el toen e localStorage
         this.serviceLogin.setIsadmin(data['is_staff'])
-        this.router.navigate(['../inicio']);
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario válido',
+          showConfirmButton: true,
+        }).then( () => {
+          this.router.navigate(['../inicio']);;
+        })
       },
       (error) => {
-        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Algo paso ...',
+          text: error['error'].message,
+          showConfirmButton: true,
+        })
       }
     )
       
