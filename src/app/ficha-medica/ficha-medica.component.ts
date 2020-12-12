@@ -166,12 +166,13 @@ export class FichaMedicaComponent implements OnInit {
       })
        
      },
-     error =>{
+     (error) => {
       Swal.fire({
         icon: 'error',
         title: 'Hubo un error :(',
+        text: error['error'],
       })
-      console.log("errorrrrrr")
+      console.log(error)
      }
    )
 
