@@ -68,6 +68,7 @@ get telefonoNoValido(){
       password: ['', Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.minLength(7)]],
+      sexo: ['' ],
 
 
     }

@@ -7,11 +7,13 @@ import { FormControl } from '@angular/forms';
 export class LoginService {
   
   httpOptions : any
-  
+  token
   constructor(private httpCliente: HttpClient) {
+    this.token = this.getToken()
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
+        'access-token': this.token
       })
     };
    }
@@ -30,16 +32,28 @@ export class LoginService {
   }
 
   // guardo, sí es administrador
-  setIsadmin(user){
-    localStorage.setItem("admi",user)
+  setRol(user){
+    localStorage.setItem("rol",user)
   }
     // obtnego,sí es administrador
-  getisadmi() {
-    return localStorage.getItem("admi");
+  getRol() {
+    return localStorage.getItem("rol");
   }
 
+  setUserDni(user){
+    localStorage.setItem("dni_user",user)}
+
+  getUserDni(){
+    return localStorage.getItem("dni_user")} 
+    
+
+
+
   tipoSangre() {
-    return  this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/tipo-sangre')
+    return  this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/tipo-sangre',this.httpOptions)
+  }
+  tipoSangreEspecifico(id) {
+    return  this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/tipo-sangre/'+id, this.httpOptions)
   }
   CheckMinsa(control: FormControl){
     if( control.value){

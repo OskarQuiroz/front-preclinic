@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceListUsersService} from './../lista-usuario/service-list-users.service'
 import { PerfilUsuarioService} from './service/perfil-usuario.service'
+import { LoginService} from './../../login/service/login.service'
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-perfil-usuario',
@@ -14,11 +15,15 @@ export class PerfilUsuarioComponent implements OnInit {
   codigo : String
   fichas : any
   existeFichaMedicas = false
-  
+  isAdmin =false
 
-  constructor( private service : ServiceListUsersService, private route: ActivatedRoute,private perfil : PerfilUsuarioService ) { }
+  constructor( private service : ServiceListUsersService, private route: ActivatedRoute,private perfil : PerfilUsuarioService, private login : LoginService ) { }
 
   ngOnInit(): void {
+    if(this.login.getRol()=="admin"){
+      this.isAdmin =true
+    }
+      
     this.loadData()
     setTimeout( ()=>{this.loadFichaMedicas() }, 1000)
     
@@ -29,6 +34,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.service.getUser(dni).subscribe(
       (data) =>{
         this.informacion = data['user']
+        console.log( this.informacion)
         this.codigo = data['user'].codigo
       },
       (error) =>{

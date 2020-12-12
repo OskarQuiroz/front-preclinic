@@ -27,7 +27,7 @@
                                         <small class="text-muted">DNI : {{informacion.dni}}</small>
                                         <div class="staff-id">Codigo : {{informacion.codigo}}</div>
                                         <div class="staff-msg">
-                                            <a [routerLink]="['/ficha-medica',informacion.dni]" class="btn btn-primary">Agregar Ficha Medica</a>
+                                            <a [routerLink]="['/ficha-medica',informacion.dni]" *ngIf="isAdmin" class="btn btn-primary">Agregar Ficha Medica</a>
                                         </div>
                                     </div>
                                 </div>
@@ -46,8 +46,8 @@
                                             <span class="text">{{informacion.direccion}}</span>
                                         </li>
                                         <li>
-                                            <span class="title">Gender:</span>
-                                            <span class="text">Female</span>
+                                            <span class="title">Sexo:</span>
+                                            <span class="text">{{informacion.sexo}}</span>
                                         </li>
                                     </ul>
                                 </div>

@@ -31,14 +31,21 @@ export class LoginComponent implements OnInit {
       (data) => {
         console.log(data) //con esto vere lo que me devuelve el back
         this.serviceLogin.setToken(data['token']) //aquii guardare el toen e localStorage
-        this.serviceLogin.setIsadmin(data['is_staff'])
-        
+        this.serviceLogin.setRol(data['userFound'].rol[0].name)
+        this.serviceLogin.setUserDni(data['userFound'].dni)
+ 
         Swal.fire({
           icon: 'success',
           title: 'Usuario válido',
           showConfirmButton: true,
         }).then( () => {
-          this.router.navigate(['../inicio']);;
+          if( this.serviceLogin.getRol()=="admin"){
+            this.router.navigate(['../inicio']);;
+          }
+          if( this.serviceLogin.getRol()=="user"){
+            let dni = this.serviceLogin.getUserDni()
+            this.router.navigate(['../perfil-usuario',dni]);;
+          }
         })
       },
       (error) => {
