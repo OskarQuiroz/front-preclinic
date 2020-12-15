@@ -1,4 +1,69 @@
-<div class="page-wrapper" >
-    <p>estadistica works!</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+    
+    <h3>TIPO DE SANGRE</h3>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+<script>
+     var ctx = document.getElementById("myChart").getContext("2d");
+     var myChart = new Chart(ctx,{
+         type:"pie",
+         data:{
+             labels:['A+','B+','O+','AB+','A-','B-','O-','AB-'],
+             datasets:[{
+                 label: 'Num datos',
+                 data:[10,9,15,3,20,34,52,17],
+                 backgroundColor:[
+                     'rgb(51,255,51)',
+                     'rgb(66,134,244)',
+                     'rgb(236,255,49)',
+                     'rgb(224,0,255)',
+                     'rgb(18,142,18)',
+                     'rgb(33,20,185)',
+                     'rgb(255,216,0)',
+                     'rgb(97,18,142)',
+                 ]
+             }]
+         },
+        options: {
+             responsive: false,
+        }        
+     }
+     )
+</script>
+
+<h3>USUARIOS CON SEGURO</h3>
+
+<canvas id="myChart2" width="400" height="400"></canvas>
+<script>
+     var ctx = document.getElementById("myChart2").getContext("2d");
+     var myChart = new Chart(ctx,{
+         type:"pie",
+         data:{
+             labels:['0','1','MÁS DE 1'],
+             datasets:[{
+                 label: 'Num datos',
+                 data:[10,100,40],
+                 backgroundColor:[
+                     'rgb(255, 60, 51)',
+                     'rgb(255, 249, 51 )',
+                     'rgb(116, 255, 51)'
+                 ]
+             }]
+         },
+        options: {
+             responsive: false,
+        }        
+     }
+     )
+</script>
+
+</body>
+</html>
 
