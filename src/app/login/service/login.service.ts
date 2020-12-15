@@ -19,8 +19,9 @@ export class LoginService {
    }
   
   Login(email: String, contraseña: String){
-    return this.httpCliente.post('https://nameless-plains-49486.herokuapp.com/api/auth/signin', { "email": email, "password": contraseña},this.httpOptions)
+    return this.httpCliente.post('https://nameless-plains-49486.herokuapp.com/api/auth/signin', { "email": email, "password": contraseña})
   }
+
 
   //guardo el token
   setToken(token){
@@ -29,6 +30,9 @@ export class LoginService {
   //obtengo eltoken, si lo requiero
   getToken() {
     return localStorage.getItem("accessToken");
+  }
+  removeToken() {
+    return localStorage.removeItem("accessToken");
   }
 
   // guardo, sí es administrador
@@ -39,13 +43,19 @@ export class LoginService {
   getRol() {
     return localStorage.getItem("rol");
   }
+  removeRol() {
+    return localStorage.removeItem("rol");
+  }
 
   setUserDni(user){
     localStorage.setItem("dni_user",user)}
 
   getUserDni(){
     return localStorage.getItem("dni_user")} 
-    
+  
+  removeDni() {
+    return localStorage.removeItem("dni_user");
+  }
 
 
 

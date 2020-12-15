@@ -15,23 +15,17 @@
 							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
 						</span>
-						<span>Admin</span>
+						<span>{{rol}}</span>
                     </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="profile.html">My Profile</a>
-						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="login.html">Logout</a>
+						<a class="dropdown-item"  (click)="Logout()" >Logout</a>
 					</div>
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="login.html" (click)="Logout()" >Logout</a>
                 </div>
             </div>
         </div>
@@ -41,20 +35,29 @@
                     <ul>
                         <li class="menu-title">Main</li>
                         <li routerLinkActive="active" *ngIf="IsAdmin">
-                            <a [routerLink]="['./inicio']"  ><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
+                            <a [routerLink]="['./inicio']"  ><i class="fa fa-home"></i> <span>Inicio</span></a>
                         </li>
 						<li routerLinkActive="active" *ngIf="IsAdmin">
                             <a  [routerLink]="['./usuarios']" ><i class="fa fa-user-md"></i> <span>Usuarios</span></a>
                         </li>
                         <li routerLinkActive="active" *ngIf="IsAdmin">
-                            <a  [routerLink]="['./estadistica']" ><i class="fa fa-wheelchair"></i> <span>Estadisticas</span></a>
+                            <a  [routerLink]="['./estadistica']" ><i class="fas fa-chart-bar"></i> <span>Estadisticas</span></a>
                         </li>
                         <li  routerLinkActive="active" *ngIf="IsAdmin">
-                            <a  [routerLink]="['./roles']" ><i class="fa fa-calendar"></i> <span>Roles</span></a>
+                            <a  [routerLink]="['./roles']" ><i class="fas fa-user-tag"></i> <span>Roles</span></a>
+                        </li>
+                        <!--
+                        <li  routerLinkActive="active" *ngIf="IsAdmin">
+                            <a  [routerLink]="['./permisos']" ><i class="fa fa-calendar"></i> <span>Permisos</span></a>
+                        </li>
+                        -->
+                        <li  routerLinkActive="active" *ngIf="IsAdmin">
+                            <a  [routerLink]="['./discapacidades']" ><i class="fas fa-blind"></i> <span>Discapacidades</span></a>
                         </li>
                         <li  routerLinkActive="active" *ngIf="IsUser">
-                            <a  [routerLink]="['./perfil-usuario',dni]" ><i class="fa fa-calendar"></i> <span>Perfil</span></a>
+                            <a  [routerLink]="['./perfil-usuario',dni]" ><i class="fas fa-user-alt"></i> <span>Perfil</span></a>
                         </li>
+                        
             
 
                     </ul>

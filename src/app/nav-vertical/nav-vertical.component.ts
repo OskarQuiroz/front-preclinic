@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from './../login/service/login.service'
+import { Router } from '@angular/router';
+import Swal from'sweetalert2';
 @Component({
   selector: 'app-nav-vertical',
   templateUrl: './nav-vertical.component.html',
@@ -10,19 +12,21 @@ export class NavVerticalComponent implements OnInit {
   IsAdmin = false
   IsUser = false
   dni
-  constructor(private service : LoginService) { }
+  rol
+  constructor(private service : LoginService,private router: Router) { }
 
   ngOnInit(): void {
     this.GetRolUser()
     this.getUserDni()
+    this.rol = this.service.getRol()
   }
 
   GetRolUser(){
     let rol = this.service.getRol();
-    if(rol === "admin"){
+    if(rol === "ADMIN"){
       this.IsAdmin = true
     }
-    if(rol === "user"){
+    if(rol === "USUARIO"){
       this.IsUser = true
     }
 
@@ -30,6 +34,23 @@ export class NavVerticalComponent implements OnInit {
   getUserDni(){
     this.dni = this.service.getUserDni();
 
+  }
+  Logout(){
+    Swal.fire({
+      icon: 'question',
+      title: '¿Estas seguro de salir?',
+      showConfirmButton: true,
+      showCancelButton: true,
+    }).then(resp => {
+      if(resp.value){
+        this.service.removeToken();
+        this.service.removeDni();
+        this.service.removeRol()
+      this.router.navigate(['../login']);;
+      }
+
+    })
+    
   }
 
 }

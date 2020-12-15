@@ -19,7 +19,9 @@ import { PerfilUsuarioComponent } from './usuarios/perfil-usuario/perfil-usuario
 import { FichaComponent } from './usuarios/ficha/ficha.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
-import { FilterPipe } from './pipes/filter.pipe'; // <-- import the module
+import { FilterPipe } from './pipes/filter.pipe';
+import { PermisosComponent } from './permisos/permisos.component';
+import { DiscapacidadesComponent } from './discapacidades/discapacidades.component'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { FilterPipe } from './pipes/filter.pipe'; // <-- import the module
     CrearUsuarioComponent,
     PerfilUsuarioComponent,
     FichaComponent,
-    FilterPipe
+    FilterPipe,
+    PermisosComponent,
+    DiscapacidadesComponent
   ],
   imports: [
     BrowserModule,

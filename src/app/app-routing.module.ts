@@ -12,8 +12,11 @@ import { PerfilUsuarioComponent } from './usuarios/perfil-usuario/perfil-usuario
 import { UsuariosComponent } from './usuarios/lista-usuario/usuarios.component';
 import { LoginGuard } from './login/guard/login.guard';
 import { FichaComponent } from './usuarios/ficha/ficha.component';
+import { PermisosComponent } from './permisos/permisos.component';
+import { DiscapacidadesComponent } from './discapacidades/discapacidades.component';
 
 const routes: Routes = [
+
   {
     path: 'login',
     component: LoginComponent
@@ -21,7 +24,7 @@ const routes: Routes = [
   {
     path: '',
     component: NavVerticalComponent,
-    //canActivateChild:[],
+    //canActivateChild:[LoginGuard],
     children: [
       {
         path: '',
@@ -60,9 +63,18 @@ const routes: Routes = [
         path: 'roles',
         component: RolesComponent
       },
+      {
+        path: 'permisos',
+        component: PermisosComponent
+      },
+      {
+        path: 'discapacidades',
+        component: DiscapacidadesComponent
+      },
       
     ]
   },
+
   {
     path: '**',
     component: NotFoundComponent

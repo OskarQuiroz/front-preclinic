@@ -2,10 +2,10 @@
     <div class="main-wrapper">
     
         <div class="page-wrapper">
-            <div class="content" *ngIf="DataRolesListo">
+            <div class="content" *ngIf="DataDiscapacidadesListo">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4 class="page-title">Rol</h4>
+                        <h4 class="page-title">Discapacidad</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -13,14 +13,14 @@
                         <div class="card-box">
                             <div class="card-block">
 								<div class="table-responsive">
-                                    <h4>Crear Rol</h4>
-                                    <form #f="ngForm" (ngSubmit)="PostRoles()">
-                                        <label for="">Nombre</label>
-                                        <input type="text" class="form-control" placeholder="Ingrese un nombre" [(ngModel)]="nombre" name="nombre">
-                                        <label for="" class="mt-3">Descripcion</label>
-                                        <input type="text" class="form-control" placeholder="Ingrese una descripcion" [(ngModel)]="descripcion" name="descripcion">
-                                        <button class="btn btn-primary mt-4 float-right" type="submit">Agregar</button>
+                                    <h4>Crear Discapacidad</h4>
+                                    <form #f="ngForm" (ngSubmit)="PostDiscapacidades()">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Ingrese una discapacidad" [(ngModel)]="discapacidad" name="discapacidad">
+                                            <button class="btn btn-primary mt-4 float-right" type="submit">Agregar</button>
+                                        </div>
                                     </form>
+                                    
                                     <!-- 
                                     <div class="">
                                         <input type="checkbox">Gaaddasdas
@@ -28,6 +28,7 @@
                                         <input type="checkbox">Gaaddasdas
                                     </div>
                                     -->
+                                    
                                     <div class="col-sm-12">
                       
                                 </div>
@@ -44,16 +45,14 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Descripcion</th>
                                             <th>Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let dato of DataRoles;let i = index">
+                                        <tr *ngFor="let dato of DataDiscapacidades;let i = index">
                                             <th>{{i+1}}</th>
                                             <th>{{dato.name}}</th>
-                                            <th>{{dato.description}}</th>
-                                            <th><button type="submit" class="btn btn-danger" (click)="DeleteRoles(dato._id)">Eliminar</button></th>
+                                            <th><button type="submit" class="btn btn-danger" (click)="DeleteDiscapacidades(dato._id)">Eliminar</button></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -68,4 +67,3 @@
     </div>
 
 </body>
-
